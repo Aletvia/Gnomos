@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                 Log.i("OnResponse","OK")
                 val brastlewark = res?.body()
                 Log.i("LISTA", Gson().toJson(brastlewark))
-
             }
             override fun onFailure(call: Call<SerializedBrastlewarkList>?, t: Throwable?) {
                 Log.e("Error","getAll")

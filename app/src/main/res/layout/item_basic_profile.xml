@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/sombra_item"
+    android:background="@drawable/item_shadow"
     android:orientation="horizontal"
     android:baselineAligned="false">
 
-    <!-- Lado izquierdo -->
+    <!-- LEFT -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,19 +16,19 @@
 
 
         <ImageView
-            android:id="@+id/status_image"
+            android:id="@+id/img_profile_picture_b"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="0dp"
             android:padding="0dp"
-            android:src="@drawable/persona"
-            android:contentDescription="@string/imagen_de_perfil" />
+            android:src="@drawable/user"
+            android:contentDescription="@string/profile_picture" />
 
     </RelativeLayout>
 
-    <!-- Lado derecho -->
+    <!-- RIGHT -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,115 +38,115 @@
         android:paddingEnd="15dp"
         android:paddingBottom="10dp">
 
-        <!-- NOMBRE -->
+        <!-- NAME -->
         <TextView
-            android:id="@+id/txt_nombre"
+            android:id="@+id/txt_name_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginEnd="5dp"
-            android:text="@string/nombre"
+            android:text="@string/name"
             android:textStyle="bold"
             android:textSize="20sp" />
 
 
-        <!-- EDAD -->
+        <!-- AGE -->
         <TextView
-            android:id="@+id/title_edad"
+            android:id="@+id/title_age_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/txt_nombre"
-            android:text="@string/edad"
+            android:layout_below="@id/txt_name_b"
+            android:text="@string/age"
             android:textStyle="bold"
             android:textSize="16sp" />
         <TextView
-            android:id="@+id/txt_edad"
+            android:id="@+id/txt_age_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/txt_nombre"
-            android:layout_toEndOf="@+id/title_estatura"
-            android:text="@string/numero_ceros"
+            android:layout_below="@id/txt_name_b"
+            android:layout_toEndOf="@+id/title_height_b"
+            android:text="@string/number_zeros"
             android:textSize="16sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/txt_nombre"
-            android:layout_toEndOf="@+id/txt_edad"
-            android:text="@string/anios"
+            android:layout_below="@id/txt_name_b"
+            android:layout_toEndOf="@+id/txt_age_b"
+            android:text="@string/age_unit"
             android:textSize="16sp" />
 
 
         <!-- PESO -->
         <TextView
-            android:id="@+id/title_peso"
+            android:id="@+id/title_weight_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_edad"
-            android:text="@string/peso"
+            android:layout_below="@id/txt_age_b"
+            android:text="@string/weight"
             android:textStyle="bold"
             android:textSize="16sp" />
         <TextView
-            android:id="@+id/txt_peso"
+            android:id="@+id/txt_weight_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_edad"
-            android:layout_toEndOf="@+id/title_estatura"
-            android:text="@string/numero_ceros"
+            android:layout_below="@id/txt_age_b"
+            android:layout_toEndOf="@+id/title_height_b"
+            android:text="@string/number_zeros"
             android:textSize="16sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_edad"
-            android:layout_toEndOf="@+id/txt_peso"
-            android:text="@string/unidad_peso"
+            android:layout_below="@id/txt_age_b"
+            android:layout_toEndOf="@+id/txt_weight_b"
+            android:text="@string/weight_unit"
             android:textSize="16sp" />
 
         <!-- ESTATURA -->
         <TextView
-            android:id="@+id/title_estatura"
+            android:id="@+id/title_height_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_peso"
-            android:text="@string/estatura"
+            android:layout_below="@id/txt_weight_b"
+            android:text="@string/height"
             android:textStyle="bold"
             android:textSize="16sp" />
         <TextView
-            android:id="@+id/txt_estatura"
+            android:id="@+id/txt_height_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_peso"
-            android:layout_toEndOf="@+id/title_estatura"
-            android:text="@string/numero_ceros"
+            android:layout_below="@id/txt_weight_b"
+            android:layout_toEndOf="@+id/title_height_b"
+            android:text="@string/number_zeros"
             android:textSize="16sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_peso"
-            android:layout_toEndOf="@+id/txt_estatura"
-            android:text="@string/unidad_estatura"
+            android:layout_below="@id/txt_weight_b"
+            android:layout_toEndOf="@+id/txt_height_b"
+            android:text="@string/height_unit"
             android:textSize="16sp" />
 
 
-        <!-- CABELLO -->
+        <!-- HAIR -->
         <TextView
-            android:id="@+id/title_cabello"
+            android:id="@+id/title_hair_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_estatura"
-            android:text="@string/cabello"
+            android:layout_below="@id/txt_height_b"
+            android:text="@string/hair"
             android:textStyle="bold"
             android:textSize="16sp" />
 
@@ -155,9 +155,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:layout_below="@id/txt_estatura"
-            android:layout_toEndOf="@+id/title_estatura"
-            android:text="@string/color_cabello"
+            android:layout_below="@id/txt_height_b"
+            android:layout_toEndOf="@+id/title_height_b"
+            android:text="@string/hair_color"
             android:textSize="16sp" />
 
     </RelativeLayout>
