@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Gnomos</string>
+    <string name="profile_picture">Imagen de perfil</string>
+    <string name="name">####### ##### ######</string>
+    <string name="hair">Cabello:</string>
+    <string name="age">Edad:</string>
+    <string name="age_unit"> años</string>
+    <string name="hair_color">Color</string>
+    <string name="number_zeros">00</string>
+    <string name="height">Estatura: </string>
+    <string name="height_unit">" cm"</string>
+    <string name="weight">"Peso: "</string>
+    <string name="weight_unit">" kg"</string>
+    <string name="friendships">Amistades</string>
+    <string name="professions">Profesiones</string>
 </resources>

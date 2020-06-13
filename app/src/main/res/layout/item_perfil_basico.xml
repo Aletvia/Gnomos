@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sombra_item"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <!-- Lado izquierdo -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="@color/colorPrimary"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:src="@drawable/persona"
+            android:contentDescription="@string/imagen_de_perfil" />
+
+    </RelativeLayout>
+
+    <!-- Lado derecho -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="10dp">
+
+        <!-- NOMBRE -->
+        <TextView
+            android:id="@+id/txt_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="5dp"
+            android:text="@string/nombre"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+
+        <!-- EDAD -->
+        <TextView
+            android:id="@+id/title_edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_nombre"
+            android:text="@string/edad"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txt_edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_nombre"
+            android:layout_toEndOf="@+id/title_estatura"
+            android:text="@string/numero_ceros"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_nombre"
+            android:layout_toEndOf="@+id/txt_edad"
+            android:text="@string/anios"
+            android:textSize="16sp" />
+
+
+        <!-- PESO -->
+        <TextView
+            android:id="@+id/title_peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_edad"
+            android:text="@string/peso"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txt_peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_edad"
+            android:layout_toEndOf="@+id/title_estatura"
+            android:text="@string/numero_ceros"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_edad"
+            android:layout_toEndOf="@+id/txt_peso"
+            android:text="@string/unidad_peso"
+            android:textSize="16sp" />
+
+        <!-- ESTATURA -->
+        <TextView
+            android:id="@+id/title_estatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_peso"
+            android:text="@string/estatura"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txt_estatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_peso"
+            android:layout_toEndOf="@+id/title_estatura"
+            android:text="@string/numero_ceros"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_peso"
+            android:layout_toEndOf="@+id/txt_estatura"
+            android:text="@string/unidad_estatura"
+            android:textSize="16sp" />
+
+
+        <!-- CABELLO -->
+        <TextView
+            android:id="@+id/title_cabello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_estatura"
+            android:text="@string/cabello"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_cabello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txt_estatura"
+            android:layout_toEndOf="@+id/title_estatura"
+            android:text="@string/color_cabello"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
