@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FullProfile">
+
+    <!-- IMG -->
+    <RelativeLayout
+        android:id="@+id/primary_rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="10dp">
+
+        <!-- NAME -->
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/name"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/img_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:src="@drawable/user"
+            android:contentDescription="@string/profile_picture" />
+
+    </RelativeLayout>
+
+    <!-- BASIC PROFILE -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/primary_rel"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical">
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2"
+                >
+
+                <!-- AGE -->
+                <TextView
+                    android:id="@+id/title_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:text="@string/age"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/txt_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:text="@string/number_zeros"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:text="@string/age_unit"
+                    android:textSize="18sp" />
+
+
+                <!-- WEIGHT -->
+                <TextView
+                    android:id="@+id/title_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:text="@string/weight"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/txt_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:text="@string/number_zeros"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:text="@string/weight_unit"
+                    android:textSize="18sp" />
+
+                <!-- HEIGHT -->
+                <TextView
+                    android:id="@+id/title_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:text="@string/height"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/txt_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:text="@string/number_zeros"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="2"
+                    android:layout_column="2"
+                    android:text="@string/height_unit"
+                    android:textSize="18sp" />
+
+
+                <!-- HAIR -->
+                <TextView
+                    android:id="@+id/title_hair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:text="@string/hair"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_hair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:text="@string/hair_color"
+                    android:textSize="18sp" />
+
+                <!-- PROFESSIONS -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="@string/professions"
+                    android:layout_row="4"
+                    android:layout_column="0"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+
+            </GridLayout>
+
+
+
+
+            <TextView
+                android:id="@+id/list_professions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:layout_row="5"
+                android:layout_column="0"
+                android:textSize="18sp" >
+            </TextView>
+
+            <!-- FRIENDSHIPS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:layout_row="6"
+                android:layout_column="0"
+                android:text="@string/friendships"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/list_friendships"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:layout_row="7"
+                android:layout_column="0"
+                android:textSize="18sp" >
+            </TextView>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
