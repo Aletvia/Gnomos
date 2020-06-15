@@ -1,42 +1,98 @@
 package com.aall.gnomos
 
-import Brastlewark
 import SerializedBrastlewarkList
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.JsonObject
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class MainActivity : AppCompatActivity() {
-    /*private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager*/
+class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
+    private var myAdapter: AdapterBrastlewarkBasic ? = null
+    private var myCompositeDisposable: CompositeDisposable? = null
+    private var myBrastlewarkArrayList: ArrayList<BrastlewarkSerialized>? = null
     private val urlBase = "https://raw.githubusercontent.com"
     private lateinit var service: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        myCompositeDisposable = CompositeDisposable()
+        initRecyclerView()
+        getAll()
+        /*myCompositeDisposable = CompositeDisposable()
+        initRecyclerView()
+        getAll2()*/
+    }
 
+    private fun initRecyclerView() {
+        val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
+        list_gnomos.layoutManager = layoutManager
+    }
+
+    private fun getAll2() {
+        val retrofit2 = Retrofit.Builder().baseUrl(urlBase)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build().create(ApiService::class.java)
+
+        myCompositeDisposable?.add(retrofit2.getData()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse))
+    }
+
+    private fun handleResponse(brastlewarkList: List<BrastlewarkSerialized>) {
+        Log.i("Lista",brastlewarkList.toString())
+        myBrastlewarkArrayList = ArrayList(brastlewarkList)
+        myAdapter = AdapterBrastlewarkBasic(myBrastlewarkArrayList!!, this)
+        list_gnomos.adapter = myAdapter
+    }
+
+    override fun onItemClick(brast_gnomo: BrastlewarkSerialized) {
+        Log.i( "Seleccionó:"," ${brast_gnomo.name}")
+        val intent = Intent(this, FullProfile::class.java)
+        intent.putExtra("EXTRA_GNOMO", Gson().toJson(brast_gnomo))
+        startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        myCompositeDisposable?.clear()
+    }
+
+    private fun getAll(){
         val retrofit = Retrofit.Builder().baseUrl(urlBase)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         service = retrofit.create(ApiService::class.java)
-        getAll()
-    }
-    fun getAll(){
         service.getGnomos().enqueue(object : Callback<SerializedBrastlewarkList>{
             override fun onResponse(call: Call<SerializedBrastlewarkList>?, res: Response<SerializedBrastlewarkList>?){
                 Log.i("OnResponse","OK")
                 val brastlewark = res?.body()
-                Log.i("LISTA", Gson().toJson(brastlewark))
+                Log.i("BODY",res?.body().toString())
+                val brast_json = Gson().toJson(brastlewark)
+                Log.i("toJson",brast_json)
+                val child1 = Gson().fromJson(brast_json, SerializedBrastlewarkList::class.java)
+                val _adapterPaymentHistory = child1.brastlewark
+                Log.i("child",Gson().toJson(_adapterPaymentHistory))
+                /*for(gnomo in _adapterPaymentHistory){
+                    Log.i("Gnomo", gnomo.name)
+                }*/
+                handleResponse(_adapterPaymentHistory)
             }
             override fun onFailure(call: Call<SerializedBrastlewarkList>?, t: Throwable?) {
                 Log.e("Error","getAll")

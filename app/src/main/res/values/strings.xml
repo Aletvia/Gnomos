@@ -8,7 +8,7 @@
     <string name="hair_color">Color</string>
     <string name="number_zeros">00</string>
     <string name="height">Estatura: </string>
-    <string name="height_unit">" cm"</string>
+    <string name="height_unit">" m"</string>
     <string name="weight">"Peso: "</string>
     <string name="weight_unit">" kg"</string>
     <string name="friendships">Amistades</string>

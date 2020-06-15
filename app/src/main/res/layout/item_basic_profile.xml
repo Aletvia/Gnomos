@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/item_shadow"
     android:orientation="horizontal"
+    android:id="@+id/lilear_gnomo_b"
     android:baselineAligned="false">
 
     <!-- LEFT -->
@@ -151,7 +152,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txt_cabello"
+            android:id="@+id/txt_hair_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
