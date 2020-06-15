@@ -1,13 +1,16 @@
 package com.aall.gnomos
 
 import SerializedBrastlewarkList
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.View
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -15,6 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
@@ -27,9 +31,29 @@ class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
-        getSupportActionBar()!!.hide()
-        initRecyclerView()
-        getAll()
+        connection()
+    }
+
+    private fun connection(){
+        val cm = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+        Log.i("Conexted",isConnected.toString())
+        if (!isConnected && (myBrastlewarkArrayList==null)){
+
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setTitle("UPS")
+            builder.setMessage("No tienes conexión a internet, regresa más tarde.")
+            builder.setPositiveButton("OK"){dialog, which ->
+                finish()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }else{
+            supportActionBar!!.hide()
+            initRecyclerView()
+            getAll()
+        }
     }
 
     private fun initRecyclerView() {
