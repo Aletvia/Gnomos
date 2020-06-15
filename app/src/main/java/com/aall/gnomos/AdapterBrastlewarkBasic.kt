@@ -1,10 +1,10 @@
 package com.aall.gnomos
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_basic_profile.view.*
 
 class AdapterBrastlewarkBasic(private val brastlewarkList: ArrayList<BrastlewarkSerialized>, private val listener : Listener):
@@ -38,6 +38,11 @@ RecyclerView.Adapter<AdapterBrastlewarkBasic.ViewHolder>(){
             itemView.txt_weight_b.text = convert.Converter(brastlewark.weight,"weight")
             itemView.txt_height_b.text = convert.Converter(brastlewark.height,"cmTOm")
             itemView.txt_hair_b.text = brastlewark.hair_color
+            Picasso
+                .get() // give it the context
+                .load(brastlewark.thumbnail)//("https://i.imgur.com/H981AN7.jpg") // load the image
+                .error(R.drawable.user)
+                .into(itemView.img_profile_picture_b) // select the ImageView to load it into*/
 
         }
 

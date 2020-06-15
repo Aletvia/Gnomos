@@ -13,4 +13,5 @@
     <string name="weight_unit">" kg"</string>
     <string name="friendships">Amistades</string>
     <string name="professions">Profesiones</string>
+    <string name="welcome">¡Bienvenido!</string>
 </resources>

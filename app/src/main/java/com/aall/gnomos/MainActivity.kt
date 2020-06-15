@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
+        getSupportActionBar()!!.hide()
         initRecyclerView()
         getAll()
     }
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
 
     override fun onDestroy() {
         super.onDestroy()
+        Log.i("OnDestroy","j")
     }
 
     private fun getAll(){
