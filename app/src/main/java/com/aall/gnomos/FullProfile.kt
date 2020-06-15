@@ -4,21 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.webkit.JavascriptInterface
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.gson.Gson
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.OkHttp3Downloader
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_full_profile.*
-import okhttp3.OkHttpClient
-import okhttp3.Protocol
-import java.util.*
 
 
 class FullProfile : AppCompatActivity() {
@@ -83,26 +72,6 @@ class FullProfile : AppCompatActivity() {
         }
         myWebView.loadUrl(gnomo.thumbnail)
 
-        /*val img_profile_picture : ImageView = findViewById<ImageView>(R.id.img_profile_picture)
-        // load the image with Picasso
-        val url = gnomo.thumbnail
-        Log.i("URL",url)
-        Picasso
-            .get() // give it the context
-            .load(url) // load the image
-            .error(R.drawable.user)
-            .memoryPolicy(MemoryPolicy.NO_CACHE)
-            .into(img_profile_picture, object: com.squareup.picasso.Callback {
-                override fun onSuccess() {
-                    //set animations here
-                    Log.i("Carga","OK")
-                }
-
-                override fun onError(e: java.lang.Exception?) {
-                    //do smth when there is picture loading error
-                    e?.printStackTrace()
-                }
-            })*/
 
 
     }
