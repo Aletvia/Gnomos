@@ -25,8 +25,3 @@ data class SerializedBrastlewarkList (
 
 	@SerializedName("Brastlewark") val brastlewark : List<BrastlewarkSerialized>
 )
-
-data class SerializedBrastlewarkList2 (
-
-	 val brastlewark : List<BrastlewarkSerialized>
-)

@@ -53,9 +53,9 @@ class FullProfile : AppCompatActivity() {
         }
         listProfessions.text = prof
         val listFriendships : TextView = findViewById<TextView>(R.id.list_friendships)
-        gnomo.professions.forEach {
+        gnomo.friends.forEach {
             when(it){
-                gnomo.professions.first()->{
+                gnomo.friends.first()->{
                     frie = frie+it
                 }else -> {
                 frie = frie+"\n"+it
