@@ -1,26 +1,34 @@
 package com.aall.gnomos
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.os.AsyncTask
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.webkit.JavascriptInterface
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.google.gson.Gson
-import java.io.BufferedInputStream
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.MalformedURLException
-import java.net.URL
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_full_profile.*
+import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import java.util.*
 
 
 class FullProfile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_full_profile)
+        getSupportActionBar()!!.hide()
+
         val gnomo_ext = intent.getSerializableExtra("EXTRA_GNOMO")
         val gnomo = Gson().fromJson(gnomo_ext.toString(), BrastlewarkSerialized::class.java)
         Log.i("extra", gnomo.name)
@@ -64,7 +72,38 @@ class FullProfile : AppCompatActivity() {
         }
         listFriendships.text = frie
 
+        val myWebView: WebView = findViewById(R.id.webview)
+        myWebView.settings.loadWithOverviewMode = false
+        myWebView.settings.useWideViewPort = false
+        myWebView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+        myWebView.loadUrl(gnomo.thumbnail)
+
+        /*val img_profile_picture : ImageView = findViewById<ImageView>(R.id.img_profile_picture)
+        // load the image with Picasso
+        val url = gnomo.thumbnail
+        Log.i("URL",url)
+        Picasso
+            .get() // give it the context
+            .load(url) // load the image
+            .error(R.drawable.user)
+            .memoryPolicy(MemoryPolicy.NO_CACHE)
+            .into(img_profile_picture, object: com.squareup.picasso.Callback {
+                override fun onSuccess() {
+                    //set animations here
+                    Log.i("Carga","OK")
+                }
+
+                override fun onError(e: java.lang.Exception?) {
+                    //do smth when there is picture loading error
+                    e?.printStackTrace()
+                }
+            })*/
+
 
     }
-
 }
