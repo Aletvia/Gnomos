@@ -24,9 +24,6 @@
             android:name=".FullProfile"
             android:screenOrientation="portrait"
             android:label="Perfil completo">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
         </activity>
     </application>
 

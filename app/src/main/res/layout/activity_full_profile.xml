@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".FullProfile">
 
-    <!-- IMG -->
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        tools:ignore="MissingConstraints"
+
+        />
+    <!-- IMG >
     <RelativeLayout
         android:id="@+id/primary_rel"
         android:layout_width="match_parent"
@@ -25,14 +33,13 @@
             android:src="@drawable/user"
             android:contentDescription="@string/profile_picture" />
 
-
-    </RelativeLayout>
+    </RelativeLayout-->
 
     <!-- BASIC PROFILE -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/primary_rel"
+        android:layout_below="@+id/webview"
         >
         <LinearLayout
             android:layout_width="match_parent"

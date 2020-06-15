@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -50,11 +51,10 @@ class MainActivity : AppCompatActivity(), AdapterBrastlewarkBasic.Listener {
         startActivity(intent)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("OnDestroy","j")
+    override fun onRestart() {
+        super.onRestart()
+        Log.e("onRESTART", "PromoNo: " )
     }
-
     private fun getAll(){
         val retrofit = Retrofit.Builder().baseUrl(urlBase)
             .addConverterFactory(GsonConverterFactory.create())
